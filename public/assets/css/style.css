@@ -1,0 +1,267 @@
+html {
+    font-size: 12px;
+}
+
+a {
+    text-decoration: none;
+    outline: none;
+    color: black;
+}
+
+.block-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+.registrasi.borderform {
+    padding-right: 0.3rem;
+    border-radius: 0.3rem;
+    border: 1px solid #ccc;
+}
+
+.registrasi.form {
+    width: 100%;
+    padding: 0.7em 0.7em 0.7em 0em;
+    border: 0px;
+    margin-bottom: 0px;
+    /* background: url(../img/Logo.png) no-repeat;
+    background-position-y: center;
+    background-position-x: 1rem;
+    background-size: 20px; */
+}
+
+.registrasi.form:hover {
+    border: none;
+    outline: none;
+}
+
+.registrasi.form:focus {
+    border: none;
+    outline: none;
+}
+
+.registrasi.icon {
+    border: 1px solid #ccc;
+    padding: 0.7rem;
+    border: 0px;
+    font-size: 1.2rem;
+}
+
+.registrasi.btn {
+    padding: 0.7rem;
+    color: white;
+    background-color: red;
+}
+
+.btn-inverse {
+    color: red;
+    background-color: white;
+    margin-top: 2rem;
+    padding: 0.7rem;
+    border-radius: 0.3rem;
+    border: 2px solid red;;
+}
+
+.form-salah {
+    border: 1px solid red !important;
+}
+
+.form-ok {
+    border: 0px solid #ccc;
+}
+
+.hero-img {
+    background-image: url(../img/Illustrasi\ Login.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.login-error {
+    color: #FF7D57;
+    font-size: 1.2rem;
+    width: 90%;
+    margin: 2rem 7rem;
+    background-color: #FFF5F3;
+    padding: 0.5rem;
+}
+.login-success {
+    color: #81ff57;
+    font-size: 1.2rem;
+    width: 90%;
+    margin: 2rem 7rem;
+    background-color: #f7fff3;
+    padding: 0.5rem;
+}
+
+.menu-bar-container {
+    padding: 1rem 10rem 1rem 10rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.menu-bar-content {
+    margin: 0 7rem;
+}
+
+.menu-bar-a {
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    font-size: 1.2rem;
+}
+
+.menu-bar-item {
+    padding: 1rem 2rem;
+}
+
+.menu-active {
+    color: red;
+}
+
+.profile-picture-group {
+    position: relative;
+    width: 10rem;
+}
+
+.profile-picture-group > .profile-picture {
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+    overflow: hidden;
+    border: 1px solid #ccc;
+}
+
+.profile-picture-group > .profile-picture > .profile-img{
+    height: 100%;
+    width: auto;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+.profile-picture-group > .profile-picture-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 2.3rem;
+    aspect-ratio: 1/1;
+    border: 1px solid #ccc;
+    border-radius: 100%;
+}
+
+.widget {
+}
+
+.widget > .widget-profile {
+    padding: 1rem 2rem;
+}
+
+.widget > .widget-saldo {
+    background-image: url("../img/Background\ Saldo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
+}
+
+.dashboard-item {
+    width: 4rem;
+}
+
+.promo-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.promo-slider {
+    overflow-x: scroll;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+
+.topup-suggestion {
+    border: 1px solid #ccc;
+    border-radius: 0.3rem;
+    width: 1.5rem;
+    height: 1rem;
+    padding: 1.5rem 0;
+}
+
+.popup {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.popup-content {
+    height: 20rem;
+    width: 20rem;
+    z-index: 11;
+    border-radius: 0.3rem;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+}
+
+.transaksi-entry {
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.text-like-input {
+    border: none;
+    background: transparent;
+    outline: none;
+    padding: 0;     
+    color: inherit;
+    user-select: none;
+    font-size: inherit;
+}
+
+.loading {
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    z-index: 11;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease; 
+  -webkit-transition: opacity 0.5s ease; 
+  -moz-transition: opacity 0.5s ease; 
+}
+
+.transaction-plus {
+    color: #4feb5e;
+}
+
+.transaction-minus {
+    color: red;
+}
+
+.service-item {
+    width: 7rem;
+    font-size: 1rem;
+}
+
+.white-svg {
+    filter: invert(100%) brightness(1000%);
+}
