@@ -80,8 +80,6 @@ a {
 
 .hero-img {
     background-image: url(../img/Illustrasi\ Login.png);
-    background-position: center;
-    background-size: cover;
 }
 
 .login-error {

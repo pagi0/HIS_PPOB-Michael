@@ -37,8 +37,8 @@
 
 <?= $this->section('content') ?>
 
-<div class="w-full h-min-screen flex flex-col items-center justify-center">
-    <div class="w-full 3xl:max-w-[2000px] 3xl:max-h-[1080] h-min-screen grid grid-cols-1 md:grid-cols-2">
+<div class="w-full h-full h-min-screen flex flex-col items-center justify-center">
+    <div class="w-full 3xl:max-w-[2000px] h-min-screen grid grid-cols-1 md:grid-cols-2">
         <div class="w-full w-full grid grid-rows-1 grid-rows-1">
             <div class="flex flex-row justify-center items-center col-start-1 row-start-1 row-span-1 z-10 py-24">
                 <div class="w-8/12 flex flex-col justify-center items-center gap-12">
@@ -74,7 +74,7 @@
                 </div>
             </div>
         </div>
-        <div class="hidden md:block bg-yellow-100 hero-img">
+        <div class="hidden md:block bg-yellow-100 bg-cover bg-center hero-img">
         </div>
     </div>
     
