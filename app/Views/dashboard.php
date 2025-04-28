@@ -2,7 +2,7 @@
 
 <?= $this->section('content') ?>
 <div class="container-xxl row d-flex flex-column justify-content-center align-items-center" style="padding-top: 2.5rem; margin-bottom: 5rem;">
-    <div class="col-md-12 d-flex flex-column align-items-center gap-4">
+    <div class="col-md-12 d-flex flex-column align-items-center gap-4 m-0">
         <div class="col-md-1"></div>
         <div class="col-md-10 row">
             <?= view('components/profile_widget') ?>

@@ -11,8 +11,8 @@
     <div class="col-md-7 d-flex flex-column widget-saldo py-5 px-4">
         <h5 style="font-size: 1.2rem;">Saldo anda</h5>
         <h1><span>Rp </span><input type="password" class="user-select-none text-like-input" id="saldo" disabled></input></h3>
-        <span id="lihat-saldo" class="clickable">Lihat saldo <img class="white-svg" src="<?= base_url() ?>assets/icon/visibility.svg" width="15"></span>
-        <span id="sembunyikan-saldo" class="clickable">Sembunyikan saldo <img class="white-svg" src="<?= base_url() ?>assets/icon/visibility_off.svg" width="15"></span>
+        <span id="lihat-saldo" class="clickable d-none">Lihat saldo <img class="white-svg" src="<?= base_url() ?>assets/icon/visibility.svg" width="15"></span>
+        <span id="sembunyikan-saldo" class="clickable d-none">Sembunyikan saldo <img class="white-svg" src="<?= base_url() ?>assets/icon/visibility_off.svg" width="15"></span>
 
     </div>
 </div>
@@ -73,12 +73,15 @@
     })
     $(document).ready(function() {
         let type = sessionStorage.getItem('tampilSaldo');
+        if (type === null) {
+            type = "password";
+        }
         $('#saldo').attr('type', type);
         console.log(type);
         if (type == "text") {
             $('#lihat-saldo').addClass('d-none');
             $('#sembunyikan-saldo').removeClass('d-none');
-        } else if (type == "password") {
+        } else {
             $('#lihat-saldo').removeClass('d-none');
             $('#sembunyikan-saldo').addClass('d-none');
         }

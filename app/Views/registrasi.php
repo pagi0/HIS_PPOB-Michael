@@ -65,8 +65,8 @@
                 </form>
                 <span class="mt-3">sudah punya akun? login <a href="<?= base_url('/login/') ?>" style="color: red; text-decoration: none; font-weight: bold">di sini</a></span>
 
-                <div class="mt-auto w-80 d-flex flex-row invisible" id="registrasi-feedback">
-                    <span id="registrasi-feedback-msg"></span>
+                <div class="mt-auto w-81 d-flex flex-row login-success" id="registrasi-feedback">
+                    <span id="registrasi-feedback-msg">adkowkado</span>
                 </div>
         </div>
         <div class="col-md-6 p-0">
