@@ -40,7 +40,7 @@
                             echo view('components/form_password', $password);
                         ?>
                     </div>
-                    <button type="submit" class="w-full bg-red-500 text-white h-form cursor-pointer mt-8">Masuk</button>
+                    <button type="submit" class="rounded-md w-full bg-red-500 text-white h-form cursor-pointer mt-8">Masuk</button>
 
                     </form>
                     <span class="">belum punya akun? registrasi <a href="<?= base_url('/registrasi/') ?>" class="!text-red-500 no-underline font-semibold">di sini</a></span>

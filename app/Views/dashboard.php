@@ -1,7 +1,6 @@
 <?= $this->extend('layouts/main') ?>
 
 <?= $this->section('content') ?>
-
 <div class="w-full 3xl:max-w-[2000px] 3xl:max-h-[1080] h-min-screen mx-auto flex flex-col justify-center items-center pt-10 mb-20 gap-16 ">
     <div class="w-10/12 flex flex-col items-center gap-4">
         <div class="w-full flex flex-col gap-14">

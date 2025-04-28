@@ -26,18 +26,18 @@
 ?>
 
 <?= $this->section('content') ?>
-<div class="container-fluid row d-flex flex-column align-items-center" style="padding-top: 2.5rem; margin-bottom: 5rem;">
-    <div class="col-md-8 d-flex flex-column align-items-center gap-4">
+<div class="w-full 3xl:max-w-[2000px] 3xl:max-h-[1080] h-min-screen mx-auto flex flex-col justify-center items-center pt-10 mb-20 gap-16 ">
+    <div class="w-10/12 flex flex-col items-center gap-6">
         <?= view('components/profile_photo') ?>
-        <h2><span id="fist_name_display">Kristanto</span> <span id="last_name_display">Wibowo</span></h2>
+        <p class="text-4xl font-semibold"><span id="fist_name_display">Kristanto</span> <span id="last_name_display">Wibowo</span></p>
 
-        <form class="d-flex flex-column w-100 gap-2" id="registrasi-form">
+        <div class="flex flex-col w-8/12 gap-2" id="registrasi-form">
                 <div>
                     <?= view('components/form_input', $email) ?>
                     <?= view('components/form_input', $first_name) ?>
                     <?= view('components/form_input', $last_name) ?>
                 </div>
-                <button id="simpan" type="submit" class="registrasi btn w-100">Simpan</button>
+                <button id="simpan" type="submit" class="rounded-md w-full bg-red-500 text-white h-form cursor-pointer mt-2">Simpan</button>
 
         </form>
     </div>

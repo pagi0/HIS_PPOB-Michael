@@ -1,11 +1,11 @@
 <?php helper('global') ?>
 
-<div id="profile-picture-group" class="profile-picture-group">
-    <div id="profile-picture" class="profile-picture">
-        <img id="profile-img" class="profile-img" src="">
+<div id="profile-picture-group" class="grow relative w-40 p-0">
+    <div id="profile-picture" class="w-full aspect-square rounded-full overflow-hidden border border-gray-300">
+        <img id="profile-img" class="h-full w-auto aspect-square object-cover rounded-full" src="">
     </div>
-    <input type="file" class="profile-picture-input" id="profile-picture-input" accept=".png, .jpg, image/jpeg, image/png" hidden>
-    <div class="profile-picture-icon d-flex align-items-center justify-content-center" style="background: #ffffff">
+    <input type="file" class="hidden" id="profile-picture-input" accept=".png, .jpg, image/jpeg, image/png" hidden>
+    <div class="absolute bottom-0 right-0 w-9 aspect-square border rounded-full border-gray-300 flex items-center justify-center bg-white">
         <img 
             src="<?= base_url()."assets/icon/edit.svg" ?>" 
             class="material-symbols-outlined"

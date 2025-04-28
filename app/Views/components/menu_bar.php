@@ -21,8 +21,8 @@
                             echo '
                                 <a class="font-medium underline-none text-center text-black text-xl py-4 px-8" href="'
                                 .base_url($menu['link']).'">'
-                                .'<h5 class="ml-auto'.(($path == $menu['link']) ? 'text-red-500' : '').'">'
-                                .$menu['name'].'</h5>'
+                                .'<p class="ml-auto '.(($path == $menu['link']) ? 'text-red-500' : '').'">'
+                                .$menu['name'].'</p>'
                                 .'</a>';
                         }
                     ?>

@@ -61,7 +61,7 @@
                             echo view('components/form_password', $password2);
                         ?>
                     </div>
-                    <button type="submit" class="w-full bg-red-500 text-white h-form cursor-pointer mt-8">Register</button>
+                    <button type="submit" class="rounded-md w-full bg-red-500 text-white h-form cursor-pointer mt-8">Register</button>
 
                     </form>
                     <span class="">sudah punya akun? login <a href="<?= base_url('/login/') ?>" class="!text-red-500 no-underline font-semibold">di sini</a></span>
