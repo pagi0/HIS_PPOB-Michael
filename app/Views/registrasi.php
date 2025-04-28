@@ -142,7 +142,7 @@
                 <?= $last_name["api_name"]?>: $('#<?= $last_name["api_name"]?>').val(),
                 <?= $password1["api_name"]?>: $('#<?= $password1["api_name"]?>').val(),
             };
-            console.log(data);
+            //console.log(data);
             const feedback = $('#registrasi-feedback');
             $.ajax({
                 url: "<?= get_api_base()?>/registration",
@@ -152,7 +152,7 @@
                     'Content-Type': 'application/json'
                 },
                 success: function(data) {
-                    console.log('Success:', data);
+                    //console.log('Success:', data);
                     feedback.removeClass('invisible');
                     feedback.addClass('login-success');
                     feedback.removeClass('login-error')
@@ -168,7 +168,7 @@
                     feedback.get(0).scrollIntoView();
                     $('#registrasi-feedback-msg').text(response.message);
 
-                    console.log('Errorr:', response);
+                    //console.log('Errorr:', response);
                 }
             });
         } 

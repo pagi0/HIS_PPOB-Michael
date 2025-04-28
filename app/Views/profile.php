@@ -54,11 +54,13 @@
             'Authorization': 'Bearer ' + localStorage.getItem('jwt_token'),
         },
         success: function(data) {
-            console.log(data);
+            //console.log(data);
             $('#<?= $email['api_name'] ?>').val(data.data.email);
             $('#<?= $first_name['api_name'] ?>').val(data.data.first_name);
             $('#<?= $last_name['api_name'] ?>').val(data.data.last_name);
-            $("#profile-img").attr("src", data.data.profile_image);
+            if (data.data.profile_image != "https://minio.nutech-integrasi.com/take-home-test/null") {
+                    $("#profile-img").attr("src", data.data.profile_image);
+            }
             $("#fist_name_display").text(data.data.last_name);
             $("#last_name_display").text(data.data.first_name);
         },

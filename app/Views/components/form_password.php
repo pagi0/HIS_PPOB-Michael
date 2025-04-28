@@ -21,7 +21,7 @@
     $('#eye_<?= $api_name ?>').on('click', function () {
         const $input = $('#<?= $api_name ?>');
         const type = $input.attr('type') === 'password' ? 'text' : 'password';
-        console.log(type);
+        //console.log(type);
         $input.attr('type', type);
     });
 </script>

@@ -53,7 +53,7 @@
                 </div>
             </div>
         </div>
-        <div class="hidden md:block bg-yellow-100 hero-img">
+        <div class="hidden md:block bg-yellow-100 bg-cover bg-center hero-img">
         </div>
     </div>
     
@@ -106,7 +106,7 @@
                     'Content-Type': 'application/json',
                 },
                 success: function(data) {
-                    console.log('Success:', data);
+                    //console.log('Success:', data);
                     feedback.removeClass('invisible');
                     feedback.addClass('bg-bg-ok text-ok');
                     feedback.removeClass('bg-bg-err text-err')
@@ -126,7 +126,7 @@
                     feedback.get(0).scrollIntoView();
                     $('#login-feedback-msg').text(response.message);
 
-                    console.log('Errorr:', response);
+                    //console.log('Errorr:', response);
                 }
             });
         } 
