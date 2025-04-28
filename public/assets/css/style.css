@@ -101,26 +101,6 @@ a {
     padding: 0.5rem;
 }
 
-.menu-bar-container {
-    padding: 1rem 10rem 1rem 10rem;
-    border-bottom: 1px solid #ccc;
-}
-
-.menu-bar-content {
-    margin: 0 7rem;
-}
-
-.menu-bar-a {
-    text-decoration: none;
-    text-align: center;
-    color: black;
-    font-size: 1.2rem;
-}
-
-.menu-bar-item {
-    padding: 1rem 2rem;
-}
-
 .menu-active {
     color: red;
 }
@@ -156,19 +136,8 @@ a {
     border-radius: 100%;
 }
 
-.widget {
-}
-
-.widget > .widget-profile {
-    padding: 1rem 2rem;
-}
-
-.widget > .widget-saldo {
+.widget-saldo {
     background-image: url("../img/Background\ Saldo.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    color: white;
 }
 
 .dashboard-item {
@@ -185,22 +154,9 @@ a {
     scroll-behavior: smooth;
 }
 
-.topup-suggestion {
-    border: 1px solid #ccc;
-    border-radius: 0.3rem;
-    width: 1.5rem;
-    height: 1rem;
-    padding: 1.5rem 0;
-}
-
 .popup {
-    width: 100vw;
-    height: 100vh;
     background-color: rgba(0, 0, 0, 0.3);
-    z-index: 10;
-    position: absolute;
-    top: 0;
-    left: 0;
+    z-index: 20;
 }
 
 .popup-content {
@@ -255,11 +211,6 @@ a {
 
 .transaction-minus {
     color: red;
-}
-
-.service-item {
-    width: 7rem;
-    font-size: 1rem;
 }
 
 .white-svg {

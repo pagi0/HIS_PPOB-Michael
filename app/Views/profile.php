@@ -24,23 +24,22 @@
 ?>
 
 <?= $this->section('content') ?>
-<div class="container-fluid row d-flex flex-column align-items-center" style="padding-top: 2.5rem; margin-bottom: 5rem;">
-    <div class="col-md-8 d-flex flex-column align-items-center gap-4">
-        <?= view('components/profile_photo') ?>
-        <h2><span id="fist_name_display">Kristanto</span> <span id="last_name_display">Wibowo</span></h2>
 
-        <div class="d-flex flex-column w-100 gap-2" id="registrasi-form">
+    <div class="w-10/12 flex flex-col items-center gap-6">
+        <?= view('components/profile_photo') ?>
+        <p class="text-4xl font-semibold"><span id="fist_name_display">Kristanto</span> <span id="last_name_display">Wibowo</span></p>
+
+        <div class="flex flex-col w-8/12 gap-2" id="registrasi-form">
                 <div>
                     <?= view('components/form_input', $email) ?>
                     <?= view('components/form_input', $first_name) ?>
                     <?= view('components/form_input', $last_name) ?>
                 </div>
-                <a href="<?= base_url() ?>profile_edit"><button type="submit" class="registrasi btn w-100">Edit Profil</button></a>
-                <button id="logout" type="submit" class="registrasi btn-inverse w-100">Logout</button>
+                <a href="<?= base_url() ?>profile_edit"><button type="submit" class="rounded-md w-full bg-red-500 text-white h-form cursor-pointer mt-2">Edit Profil</button></a>
+                <button id="logout" type="submit" class="rounded-md w-full text-red-500 border border-red-500 bg-white h-form cursor-pointer mt-6">Logout</button>
 
         </div>
     </div>
-</div>
 
 <script>
     $.ajax({

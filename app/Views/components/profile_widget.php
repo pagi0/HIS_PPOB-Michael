@@ -1,19 +1,23 @@
-<div class="row col-md-12 widget">
-    <div class="col-md-5 d-flex flex-column widget-profile p-0">
-        <div id="profile-picture-group" class="profile-picture-group p-0" style="width: 5rem">
-            <div id="profile-picture" class="profile-picture mb-4">
-                <img id="profile-img" class="profile-img" src="<?= base_url() ?>assets/img/Profile Photo.png">
+<div class="w-full flex flex-row justify-between">
+    <div class="flex flex-col py-4 ">
+        <div id="profile-picture-group" class="grow relative w-26 pb-3">
+            <div id="profile-picture" class="w-full aspect-square rounded-full overflow-hidden border border-gray-300 mb-4">
+                <img id="profile-img" class="h-full w-auto aspect-square object-cover rounded-full" src="<?= base_url() ?>assets/img/Profile Photo.png">
             </div>
         </div>
-        <h5 class="mb-0" style="color: grey">Selamat datang,</h5>
-        <h1 class="mt-0"><span id="fist_name_display">Kristanto</span> <span id="last_name_display">Wibowo</span></h1>
+        <p class="text-2xl text-gray-600 mb-1">Selamat datang,</p>
+        <p class="text-4xl font-semibold"><span id="fist_name_display">Kristanto</span> <span id="last_name_display">Wibowo</span></p>
     </div>
-    <div class="col-md-7 d-flex flex-column widget-saldo py-5 px-4">
-        <h5 style="font-size: 1.2rem;">Saldo anda</h5>
-        <h1><span>Rp </span><input type="password" class="user-select-none text-like-input" id="saldo" disabled></input></h3>
-        <span id="lihat-saldo" class="clickable d-none">Lihat saldo <img class="white-svg" src="<?= base_url() ?>assets/icon/visibility.svg" width="15"></span>
-        <span id="sembunyikan-saldo" class="clickable d-none">Sembunyikan saldo <img class="white-svg" src="<?= base_url() ?>assets/icon/visibility_off.svg" width="15"></span>
-
+    <div class="grow max-w-7/12 grid grid-cols-1 grid-rows-1 align-center">
+        <div class="flex flex-col justify-center items-start w-full h-full row-start-1 col-start-1 z-10 pl-8 text-white gap-4">
+            <p class="text-xl font-semibold">Saldo anda</p>
+            <p class="text-5xl"><span>Rp </span><input type="password" class="user-select-none text-like-input" id="saldo" disabled></input></p>
+            <p id="lihat-saldo" class="cursor-pointer hidden">Lihat saldo <img class="inline white-svg" src="<?= base_url() ?>assets/icon/visibility.svg" width="15"></p>
+            <span id="sembunyikan-saldo" class="clickable hidden">Sembunyikan saldo <img class="inline white-svg" src="<?= base_url() ?>assets/icon/visibility_off.svg" width="15"></span>
+        </div>  
+        <div class="flex flex-col w-full h-full row-start-1 col-start-1 row-span-1 justify-center">
+                <img src="<?= base_url() ?>/assets/img/Background Saldo.png" class="object-cover z-0">
+        </div>  
     </div>
 </div>
 
@@ -61,15 +65,15 @@
         let new_type = "text";
         sessionStorage.setItem('tampilSaldo', new_type)
         $('#saldo').attr('type', new_type);
-        $('#lihat-saldo').addClass('d-none');
-        $('#sembunyikan-saldo').removeClass('d-none');
+        $('#lihat-saldo').addClass('hidden');
+        $('#sembunyikan-saldo').removeClass('hidden');
     })
     $('#sembunyikan-saldo').click(function () {
         let new_type = "password";
         sessionStorage.setItem('tampilSaldo', new_type)
         $('#saldo').attr('type', new_type);
-        $('#lihat-saldo').removeClass('d-none');
-        $('#sembunyikan-saldo').addClass('d-none');
+        $('#lihat-saldo').removeClass('hidden');
+        $('#sembunyikan-saldo').addClass('hidden');
     })
     $(document).ready(function() {
         let type = sessionStorage.getItem('tampilSaldo');
@@ -79,11 +83,11 @@
         $('#saldo').attr('type', type);
         console.log(type);
         if (type == "text") {
-            $('#lihat-saldo').addClass('d-none');
-            $('#sembunyikan-saldo').removeClass('d-none');
+            $('#lihat-saldo').addClass('hidden');
+            $('#sembunyikan-saldo').removeClass('hidden');
         } else {
-            $('#lihat-saldo').removeClass('d-none');
-            $('#sembunyikan-saldo').addClass('d-none');
+            $('#lihat-saldo').removeClass('hidden');
+            $('#sembunyikan-saldo').addClass('hidden');
         }
     })
 </script>

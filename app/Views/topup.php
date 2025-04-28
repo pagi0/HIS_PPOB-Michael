@@ -7,59 +7,51 @@
 ?>
 
 <?= $this->section('content') ?>
-<div class="container-fluid row d-flex flex-column align-items-center" style="padding-top: 2.5rem; margin-bottom: 5rem;">
 
-    <div class="col-md-10 d-flex flex-column align-items-start gap-4">
+    <div class="w-10/12 flex flex-col items-center gap-4">
 
-        <?= view('components/profile_widget'); ?>
-        <h4>Silahkan masukkan</h4>
-        <h2>Nominal Top Up</h2>
-        <div class="row w-100">
-            <div class="col-md-7 d-flex flex-column">
-                <div class="d-flex registrasi borderform" id="topup-group">
-                        <img 
-                            src="<?= base_url()."assets/icon/credit_card.svg" ?>" 
-                            class="material-symbols-outlined align-self-center registrasi icon"
-                            width="30"
-                            height="30">
-                        <form id="topup-form" class="flex-grow-1 w-100">
-                            <input type="text" 
-                                class="registrasi form " 
-                                id="topup-value" 
-                                name="topup_value"
-                                placeholder="nominal top up"
-                                value="">
-                        </form>
+        <div class="w-full flex flex-col gap-2">
+            <?= view('components/profile_widget'); ?>
+            <p class="text-2xl mt-10">Silahkan masukkan</p>
+            <p class="text-4xl font-semibold">Nominal Top Up</p>
+            <div class="w-full grid grid-cols-8 gap-4 mt-10">
+                <div class="col-start-1 col-span-5">
+                    <div class="w-full flex flex-row border border-gray-300 rounded-md h-form" id="topup-group">
+                            <img 
+                                src="<?= base_url()."assets/icon/credit_card.svg" ?>" 
+                                class="material-symbols-outlined w-8 pl-4 brightness-200 invert">
+                            <form id="topup-form" class="flex-grow-1 w-full">
+                                <input type="text" 
+                                    class="w-full h-full border-0 px-4 focus:outline-none" 
+                                    id="topup-value" 
+                                    name="topup_value"
+                                    placeholder="nominal top up"
+                                    value=0>
+                            </form>
+                    </div>
+                    <span id="topup-err" class="self-end text-red-500 invisible">error</span>
+                    <button id="topup-btn" class="rounded-md w-full bg-red-500 text-white h-form cursor-pointer mt-4" style="margin-top: 2px">Top Up</button>
                 </div>
-                <span id="topup-err" class="m-0 align-self-end text-danger invisible">error</span>
-                <button id="topup-btn" class="registrasi btn w-100" style="margin-top: 2px">Top Up</button>
-            </div>
-            <div class="col-md-5 gap-5 col">
-                <?php 
-                // render suggestion nominal top up
-                    $tracker = 0;
-                    for ($idx1 = 0; $idx1 < ceil(sizeof($suggestion)/3); $idx1++) {
-                        echo '<div class="row gap-2" style="'
-                            .(($idx1 == ceil(sizeof($suggestion)/3)-1)?'margin-top: 1.5rem' : '')
-                            .'">';
-                            for ($idx2 = 0; $idx2 < 3; $idx2++) {
-                                echo '<div id="suggestion-'.$suggestion[$tracker].'" class="col topup-suggestion d-flex justify-content-center align-items-center clickable" data-val="'.$suggestion[$tracker].'"></div>';
-                                $tracker++;
+                <div class=" col-start-6 col-span-3 grid grid-cols-3 gap-y-6 gap-x-3">
+                        <?php 
+                            for ($idx = 0; $idx < sizeof($suggestion); $idx++) {
+                                echo '
+                                    <div id="suggestion-'.$suggestion[$idx].'" class=" w-full h-full topup-suggestion border border-gray-300 text-black rounded-md flex justify-center items-center cursor-pointer" data-val="'.$suggestion[$idx].'"></div>
+                                ';
                             }
-                        echo '</div>';
-                    }
-                ?>
+                        ?>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
 <?php 
 
     $topup_data = array(
         'container' => "topup-konfirmasi-container",
         'label' => array("id" => "topup-konfirmasi-label", "text" => ""),
         'nominal' => array("id" => "topup-konfirmasi-nominal", "text" => ""),
-        'ok' => array("id" => "topup-konfirmasi-ok", "text" => "Ya, lanjutkan Bayar"),
+        'ok' => array("id" => "topup-konfirmasi-ok", "text" => "Ya, lanjutkan Top Up"),
         'no' => array("id" => "topup-konfirmasi-no", "text" => "Batalkan"),
     );
 
@@ -100,8 +92,11 @@
 
 
     $('#topup-btn').on('click', function() {
-            $('#<?= $topup_data['container']?>').removeClass('d-none');
-            $('#<?= $topup_data['label']['id']?>').text(`Topup senilai`);
+        if (!$('#topup-form').valid()) {
+            return;
+        }
+            $('#<?= $topup_data['container']?>').removeClass('hidden');
+            $('#<?= $topup_data['label']['id']?>').text(`Anda yakin untuk Top Up sebesar`);
             $('#<?= $topup_data['ok']['id']?>').on('click', function () {
                 $.ajax({
                     url: "<?= get_api_base() ?>/topup",
@@ -114,11 +109,11 @@
                         top_up_amount: $('#topup-value').val(),
                     }),
                     success: function (response) {
-                        $('#<?= $topup_data['container']?>').addClass('d-none');
+                        $('#<?= $topup_data['container']?>').addClass('hidden');
                         feedback_success();
                     },
                     error: function (xhr, status, error) {
-                        $('#<?= $topup_data['container']?>').addClass('d-none');
+                        $('#<?= $topup_data['container']?>').addClass('hidden');
                         feedback_failed();
                     }
                 });
@@ -126,7 +121,7 @@
                 feedback.addClass('visible')
             });
             $('#<?= $topup_data['no']['id']?>').on('click', function () {
-                $('#<?= $topup_data['container'] ?>').addClass('d-none')
+                $('#<?= $topup_data['container'] ?>').addClass('hidden')
             })
     });
     $('#topup-form').validate({
@@ -150,9 +145,9 @@
         },
     });
     function feedback_success($success) {
-        $('#<?= $beli_feedback[0]['container'] ?>').removeClass('d-none')
+        $('#<?= $beli_feedback[0]['container'] ?>').removeClass('hidden')
         $('#<?= $beli_feedback[0]['close']['id']?>').click(() => {
-            $('#<?= $beli_feedback[0]['container'] ?>').removeClass('d-none')
+            $('#<?= $beli_feedback[0]['container'] ?>').removeClass('hidden')
             $(location).attr('href', "<?= base_url() ?>dashboard");
         })
         let format_total = `Rp.${new Intl.NumberFormat('id-ID').format($('#topup-value').val())}`;
@@ -162,9 +157,9 @@
 
 
     function feedback_failed() {
-        $('#<?= $beli_feedback[1]['container'] ?>').removeClass('d-none')
+        $('#<?= $beli_feedback[1]['container'] ?>').removeClass('hidden')
         $('#<?= $beli_feedback[1]['close']['id']?>').click(() => {
-            $('#<?= $beli_feedback[1]['container'] ?>').removeClass('d-none')
+            $('#<?= $beli_feedback[1]['container'] ?>').removeClass('hidden')
             $(location).attr('href', "<?= base_url() ?>dashboard");
         })
         let format_total = `Rp.${new Intl.NumberFormat('id-ID').format($('#topup-value').val())}`;
