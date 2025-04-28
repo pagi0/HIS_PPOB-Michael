@@ -16,7 +16,7 @@
     <div class="w-full flex flex-col justify-center items-center">
         <?= view('components/menu_bar') ?>
 
-        <div class="w-full 3xl:max-w-[2000px] h-min-screen mx-auto flex flex-col justify-center items-center pt-10 mb-20 gap-16 ">
+        <div class="w-full 3xl:max-w-[2000px] h-min-screen mx-auto flex flex-col justify-center items-center pt-2 md:pt-10 mb-20 gap-16 ">
             <?= $this->renderSection('content') ?>
         </div>
     </div>

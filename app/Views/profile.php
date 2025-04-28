@@ -27,8 +27,11 @@
 
     <div class="w-10/12 flex flex-col items-center gap-6">
         <?= view('components/profile_photo') ?>
-        <p class="text-4xl font-semibold"><span id="fist_name_display">Kristanto</span> <span id="last_name_display">Wibowo</span></p>
 
+        <div class="text-4xl font-semibold max-w-[300px] md:max-w[100px] lg:max-w-[400px] truncate">
+            <span class="overflow-ellipsis" id="fist_name_display">Kristanto</span> 
+            <span class="w-full overflow-ellipsis" id="last_name_display">Wibowo</span>
+        </div>
         <div class="flex flex-col w-8/12 gap-2" id="registrasi-form">
                 <div>
                     <?= view('components/form_input', $email) ?>
