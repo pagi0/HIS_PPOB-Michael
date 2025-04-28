@@ -73,7 +73,7 @@
             },
             error: function(xhr, status, error) {
                 let err = JSON.parse(xhr.responseText);
-                console.log(err);
+                //console.log(err);
             }
         })
     }
@@ -88,7 +88,7 @@
             success: function(data) {
                 // check apakah ada entry terbaru
                 let new_entry = data.data.records[0].invoice_number;
-                console.log(`newest ${newest} == ${new_entry}`)
+                //console.log(`newest ${newest} == ${new_entry}`)
                 if (newest == new_entry) {
                     add_data(false);
                 } else {
@@ -100,7 +100,7 @@
             },
             error: function(xhr, status, error) {
                 let err = JSON.parse(xhr.responseText);
-                console.log(err);
+                //console.log(err);
             }
         })
     })

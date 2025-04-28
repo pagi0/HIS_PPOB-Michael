@@ -37,8 +37,8 @@
 
 <?= $this->section('content') ?>
 
-<div class="w-full h-min-screen flex flex-col items-center justify-center">
-    <div class="w-full 3xl:max-w-[2000px] 3xl:max-h-[1080] h-min-screen grid grid-cols-1 md:grid-cols-2">
+<div class="w-full h-full h-min-screen flex flex-col items-center justify-center">
+    <div class="w-full 3xl:max-w-[2000px] h-min-screen grid grid-cols-1 md:grid-cols-2">
         <div class="w-full w-full grid grid-rows-1 grid-rows-1">
             <div class="flex flex-row justify-center items-center col-start-1 row-start-1 row-span-1 z-10 py-24">
                 <div class="w-8/12 flex flex-col justify-center items-center gap-12">
@@ -74,7 +74,7 @@
                 </div>
             </div>
         </div>
-        <div class="hidden md:block bg-yellow-100 hero-img">
+        <div class="hidden md:block bg-yellow-100 bg-cover bg-center hero-img">
         </div>
     </div>
     
@@ -142,7 +142,7 @@
                 <?= $last_name["api_name"]?>: $('#<?= $last_name["api_name"]?>').val(),
                 <?= $password1["api_name"]?>: $('#<?= $password1["api_name"]?>').val(),
             };
-            console.log(data);
+            //console.log(data);
             const feedback = $('#registrasi-feedback');
             $.ajax({
                 url: "<?= get_api_base()?>/registration",
@@ -152,7 +152,7 @@
                     'Content-Type': 'application/json'
                 },
                 success: function(data) {
-                    console.log('Success:', data);
+                    //console.log('Success:', data);
                     feedback.removeClass('invisible');
                     feedback.addClass('login-success');
                     feedback.removeClass('login-error')
@@ -168,7 +168,7 @@
                     feedback.get(0).scrollIntoView();
                     $('#registrasi-feedback-msg').text(response.message);
 
-                    console.log('Errorr:', response);
+                    //console.log('Errorr:', response);
                 }
             });
         } 

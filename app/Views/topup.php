@@ -15,7 +15,7 @@
             <p class="text-2xl mt-10">Silahkan masukkan</p>
             <p class="text-4xl font-semibold">Nominal Top Up</p>
             <div class="w-full grid grid-cols-8 gap-4 mt-10">
-                <div class="col-start-1 col-span-5">
+                <div class="col-start-1 col-span-full md:col-span-5">
                     <div class="w-full flex flex-row border border-gray-300 rounded-md h-form" id="topup-group">
                             <img 
                                 src="<?= base_url()."assets/icon/credit_card.svg" ?>" 
@@ -32,7 +32,7 @@
                     <span id="topup-err" class="self-end text-red-500 invisible">error</span>
                     <button id="topup-btn" class="rounded-md w-full bg-red-500 text-white h-form cursor-pointer mt-4" style="margin-top: 2px">Top Up</button>
                 </div>
-                <div class=" col-start-6 col-span-3 grid grid-cols-3 gap-y-6 gap-x-3">
+                <div class="hidden col-start-6 col-span-3 md:grid grid-cols-3 gap-y-6 gap-x-3">
                         <?php 
                             for ($idx = 0; $idx < sizeof($suggestion); $idx++) {
                                 echo '

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HIS_PPOB-Michael</title>
+    <title>SIMS PPOB-Michael Nagaku</title>
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/otailwind.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css"> <!-- Add your CSS file here -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=alternate_email,person" /> <!-- google icon -->
@@ -16,7 +16,7 @@
     <div class="w-full flex flex-col justify-center items-center">
         <?= view('components/menu_bar') ?>
 
-        <div class="w-full 3xl:max-w-[2000px] h-min-screen mx-auto flex flex-col justify-center items-center pt-10 mb-20 gap-16 ">
+        <div class="w-full 3xl:max-w-[2000px] h-min-screen mx-auto flex flex-col justify-center items-center pt-2 md:pt-10 mb-20 gap-16 ">
             <?= $this->renderSection('content') ?>
         </div>
     </div>
