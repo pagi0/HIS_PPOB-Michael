@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-3xl: 2000px;
+
+  --height-form: 3rem;
+
+  --color-bg-err: #FFF1F0;
+  --color-err: #FB2C36;
+  --color-bg-ok: #E8F6F0;
+  --color-ok: #2BE436;
+}
+

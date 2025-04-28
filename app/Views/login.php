@@ -19,38 +19,41 @@
 
 <?= $this->section('content') ?>
 
-<div class="container-fluid">
-    <div class="row h-100">
-        <div class="col-md-6 vh-100 d-flex flex-column align-items-center p-0">
-            <div class="w-100 d-flex flex-column align-items-center" style="padding: 7rem 7rem 3rem 7rem">
-                <div class="d-flex align-items-center gap-2 mb-4">
-                    <img 
-                        src="<?= base_url() ?>assets/img/Logo.png" 
-                        class="img-fluid" 
-                        style="width: 2rem; height: 2rem"
-                        alt="Responsive image">
-                    <h3 class="m-0">SIMS PPOB</h3>
-                </div>
-                <h2 class="mb-4 text-center mb-5">Masuk atau buat akun</br>untuk memulai</h2>
+<div class="w-full h-screen flex flex-col items-center justify-center">
+    <div class="w-full 3xl:max-w-[2000px] 3xl:max-h-[1080] h-screen grid grid-cols-1 md:grid-cols-2">
+        <div class="w-full w-full grid grid-rows-1 grid-rows-1">
+            <div class="flex flex-row justify-center items-center col-start-1 row-start-1 row-span-1 z-10">
+                <div class="w-8/12 flex flex-col justify-center items-center gap-12">
+                    <div class="w-full flex flex-row justify-center items-center gap-2 ">
+                        <img 
+                            src="<?= base_url() ?>assets/img/Logo.png" 
+                            class="w-8" 
+                            alt="Responsive image">
+                        <p class="text-3xl font-semibold">SIMS PPOB</p>
+                    </div>
+                    <h2 class="text-center text-3xl font-semibold">Masuk atau buat akun</br>untuk memulai</h2>
 
-                <form id="login-form" class="w-100" method="POST">
-                <div>
-                    <?php 
-                        echo view('components/form_input', $email);
-                        echo view('components/form_password', $password);
-                    ?>
-                </div>
-                <button type="submit" class="registrasi btn w-100" style="margin-top: 2rem">Masuk</button>
+                    <form id="login-form" class="w-full" method="POST">
+                    <div>
+                        <?php 
+                            echo view('components/form_input', $email);
+                            echo view('components/form_password', $password);
+                        ?>
+                    </div>
+                    <button type="submit" class="w-full bg-red-500 text-white h-form cursor-pointer mt-8">Masuk</button>
 
-                </form>
-                <span class="mt-3">belum punya akun? registrasi <a href="<?= base_url('/registrasi/') ?>" style="color: red; text-decoration: none; font-weight: bold">di sini</a></span>
+                    </form>
+                    <span class="">belum punya akun? registrasi <a href="<?= base_url('/registrasi/') ?>" class="!text-red-500 no-underline font-semibold">di sini</a></span>
+                </div>
             </div>
-            <div class="mt-auto w-80 d-flex flex-row invisible" id="login-feedback">
-                <span id="login-feedback-msg"></span>
-                <span class="align-self-end"></span>
+            <div class="flex flex-col justify-end items-center row-start-1 row-end-1 col-start-1 col-end-1">
+                <div class="w-10/12 mb-6 flex flex-row p-2 invisible bg-bg-err text-err" id="login-feedback">
+                    <span id="login-feedback-msg">MESAAGE</span>
+                    <span class="align-self-end"></span>
+                </div>
             </div>
         </div>
-        <div class="col-md-6 vh-100 p-0 overflow-hidden hero-img">
+        <div class="hidden md:block bg-yellow-100 hero-img">
         </div>
     </div>
     
@@ -103,8 +106,8 @@
                 success: function(data) {
                     console.log('Success:', data);
                     feedback.removeClass('invisible');
-                    feedback.addClass('login-success');
-                    feedback.removeClass('login-error')
+                    feedback.addClass('bg-bg-ok text-ok');
+                    feedback.removeClass('bg-bg-err text-err')
                     feedback.get(0).scrollIntoView();
                     $('#login-feedback-msg').text(data.message);
                     localStorage.setItem('jwt_token', data.data.token);
@@ -115,13 +118,12 @@
                 error: function(xhr, status, error) {
                     const response = JSON.parse(xhr.responseText);
                     feedback.removeClass('invisible');
-                    feedback.addClass('login-error');
-                    feedback.removeClass('login-sucess');
+                    feedback.addClass("bg-bg-err text-err");
+                    feedback.removeClass("bg-bg-ok text-ok")
                     feedback.get(0).scrollIntoView();
                     $('#login-feedback-msg').text(response.message);
 
                     console.log('Errorr:', response);
-                    console.error('Error:', status, error);
                 }
             });
         } 

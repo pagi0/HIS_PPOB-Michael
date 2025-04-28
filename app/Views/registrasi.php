@@ -37,40 +37,44 @@
 
 <?= $this->section('content') ?>
 
-<div class="container-fluid">
-    <div class="row h-100">
-        <div class="col-md-6 d-flex flex-column align-items-center" style="padding: 7rem">
-                <div class="d-flex align-items-center gap-2 mb-4">
-                    <img 
-                        src="<?= base_url() ?>assets/img/Logo.png" 
-                        class="img-fluid" 
-                        style="width: 2rem; height: 2rem"
-                        alt="Responsive image">
-                    <h3 class="m-0">SIMS PPOB</h3>
-                </div>
-                <h2 class="mb-4 text-center mb-5">Lengkapi data untuk </br>membuat akun</h2>
+<div class="w-full h-screen flex flex-col items-center justify-center">
+    <div class="w-full 3xl:max-w-[2000px] 3xl:max-h-[1080] h-screen grid grid-cols-1 md:grid-cols-2">
+        <div class="w-full w-full grid grid-rows-1 grid-rows-1">
+            <div class="flex flex-row justify-center items-center col-start-1 row-start-1 row-span-1 z-10">
+                <div class="w-8/12 flex flex-col justify-center items-center gap-12">
+                    <div class="w-full flex flex-row justify-center items-center gap-2 ">
+                        <img 
+                            src="<?= base_url() ?>assets/img/Logo.png" 
+                            class="w-8" 
+                            alt="Responsive image">
+                        <p class="text-3xl font-semibold">SIMS PPOB</p>
+                    </div>
+                    <h2 class="text-center text-3xl font-semibold">Lengkapi data untuk </br>membuat akun</h2>
 
-                <form action="register_process.php" id="registrasi-form" class="w-100" method="POST">
-                <div>
-                    <?php 
-                        echo view('components/form_input', $email);
-                        echo view('components/form_input', $first_name);
-                        echo view('components/form_input', $last_name);
-                        echo view('components/form_password', $password1);
-                        echo view('components/form_password', $password2);
-                    ?>
-                </div>
-                <button type="submit" class="registrasi btn w-100" style="margin-top: 2rem">Register</button>
+                    <form id="registrasi-form" class="w-full" method="POST">
+                    <div>
+                        <?php 
+                            echo view('components/form_input', $email);
+                            echo view('components/form_input', $first_name);
+                            echo view('components/form_input', $last_name);
+                            echo view('components/form_password', $password1);
+                            echo view('components/form_password', $password2);
+                        ?>
+                    </div>
+                    <button type="submit" class="w-full bg-red-500 text-white h-form cursor-pointer mt-8">Register</button>
 
-                </form>
-                <span class="mt-3">sudah punya akun? login <a href="<?= base_url('/login/') ?>" style="color: red; text-decoration: none; font-weight: bold">di sini</a></span>
-
-                <div class="mt-auto w-81 d-flex flex-row login-success" id="registrasi-feedback">
-                    <span id="registrasi-feedback-msg">adkowkado</span>
+                    </form>
+                    <span class="">sudah punya akun? login <a href="<?= base_url('/login/') ?>" class="!text-red-500 no-underline font-semibold">di sini</a></span>
+                    </div>
+            </div>
+            <div class="flex flex-col justify-end items-center row-start-1 row-end-1 col-start-1 col-end-1">
+                <div class="w-10/12 mb-6 flex flex-row p-2 invisible bg-bg-err text-err" id="login-feedback">
+                    <span id="login-feedback-msg">MESAAGE</span>
+                    <span class="align-self-end"></span>
                 </div>
+            </div>
         </div>
-        <div class="col-md-6 p-0">
-            <img src="<?= base_url() ?>assets/img/Illustrasi Login.png" class="img-fluid w-100" alt="Responsive image">
+        <div class="hidden md:block bg-yellow-100 hero-img">
         </div>
     </div>
     

@@ -1,6 +1,8 @@
 <?= $this->extend('layouts/main') ?>
 
 <?= $this->section('content') ?>
+
+<div class="bg-amber-300 w-3xl h-3 font-extrabold text-amber-200">awkdwako</div>
 <div class="container-xxl row d-flex flex-column justify-content-center align-items-center" style="padding-top: 2.5rem; margin-bottom: 5rem;">
     <div class="col-md-12 d-flex flex-column align-items-center gap-4 m-0">
         <div class="col-md-1"></div>

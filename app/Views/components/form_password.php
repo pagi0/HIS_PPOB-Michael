@@ -1,21 +1,17 @@
-<div id="form-group-<?= $api_name ?>" class="d-flex flex-column gap-0 mb-2">
-    <div class="d-flex flex-row registrasi borderform mb-1" id="<?= $api_name ?>-group">
+<div id="form-group-<?= $api_name ?>" class="w-full flex flex-col gap-0">
+    <div class="w-full flex flex-row border border-gray-300 rounded-md h-form" id="<?= $api_name ?>-group">
         <img 
             src="<?= base_url()."assets/icon/".$icon.".svg" ?>" 
-            class="material-symbols-outlined align-self-center registrasi icon"
-            width="30"
-            height="30">
+            class="w-8 pl-4 brightness-200 invert"
+            >
         <input type="password" 
-            class="registrasi form" 
+            class="w-full border-0 p-4 focus:outline-none" 
             id="<?= $api_name ?>" 
             name="<?= $api_name ?>"
             placeholder="<?= $placeholder ?>">
         <img 
             src="<?= base_url()."assets/icon/visibility.svg" ?>" 
-            class="material-symbols-outlined align-self-center registrasi icon"
-            style="color: grey;"
-            width="30"
-            height="30"
+            class="w-8 pr-4 brightness-200 invert"
             id="eye_<?= $api_name ?>">
     </div>
     <span class="align-self-end text-danger invisible" id="<?= $api_name ?>-error" >_</label>
