@@ -81,10 +81,12 @@
         errorPlacement: function (error, element) {
             $('#'+error.attr('id')).text(error.text());
             $('#'+error.attr('id')).removeClass('invisible');
+            $('#'+error.attr('id').replace("error", "group")).addClass('form-salah');
         },
         success: function (label, element) {
             $('#'+label.attr('id')).text("_");
             $('#'+label.attr('id')).addClass('invisible');
+            $('#'+error.attr('id').replace("error", "group")).removeClass('form-salah');
         },
         submitHandler: function (form) {
             // form.submit(); // Uncomment this line to submit the form
