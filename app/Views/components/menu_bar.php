@@ -1,7 +1,7 @@
 <?php  $path = explode('/', current_url(true)->getPath())[2]; ?>
-<div class="w-full  py-4 px-4 border-b-1 border-gray-300 ">
+<div class="w-full  xborder-b-1 border-gray-300 ">
     <div class="w-full 3xl:max-w-[2000px] mx-auto ">
-        <div class="w-10/12 mx-auto flex flex-row justify-between items-center">
+        <div class="w-10/12 py-4 mx-auto flex flex-row justify-between items-center">
             <div class="flex flex-row justify-left items-center gap-2">
                 <img 
                     src="<?= base_url() ?>assets/img/Logo.png" 

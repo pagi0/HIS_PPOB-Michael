@@ -154,22 +154,9 @@ a {
     scroll-behavior: smooth;
 }
 
-.topup-suggestion {
-    border: 1px solid #ccc;
-    border-radius: 0.3rem;
-    width: 1.5rem;
-    height: 1rem;
-    padding: 1.5rem 0;
-}
-
 .popup {
-    width: 100vw;
-    height: 100vh;
     background-color: rgba(0, 0, 0, 0.3);
-    z-index: 10;
-    position: absolute;
-    top: 0;
-    left: 0;
+    z-index: 20;
 }
 
 .popup-content {

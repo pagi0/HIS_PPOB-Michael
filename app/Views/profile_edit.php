@@ -26,22 +26,20 @@
 ?>
 
 <?= $this->section('content') ?>
-<div class="w-full 3xl:max-w-[2000px] 3xl:max-h-[1080] h-min-screen mx-auto flex flex-col justify-center items-center pt-10 mb-20 gap-16 ">
     <div class="w-10/12 flex flex-col items-center gap-6">
         <?= view('components/profile_photo') ?>
         <p class="text-4xl font-semibold"><span id="fist_name_display">Kristanto</span> <span id="last_name_display">Wibowo</span></p>
 
         <div class="flex flex-col w-8/12 gap-2" id="registrasi-form">
-                <div>
+                <form id="edit-form">
                     <?= view('components/form_input', $email) ?>
                     <?= view('components/form_input', $first_name) ?>
                     <?= view('components/form_input', $last_name) ?>
-                </div>
+                </form>
                 <button id="simpan" type="submit" class="rounded-md w-full bg-red-500 text-white h-form cursor-pointer mt-2">Simpan</button>
 
         </form>
     </div>
-</div>
 
 <script>
     $.ajax({
@@ -65,7 +63,39 @@
         }
     });
 
+    $('#edit-form').validate({
+        rules: {
+            <?= $first_name["api_name"]?>: {
+                required: true,
+            },
+            <?= $last_name["api_name"]?>: {
+                required: true,
+            },
+        },
+        messages: {
+            <?= $first_name["api_name"] ?>: {
+                required: "nama depan tidak boleh kosong",
+            },
+            <?= $last_name["api_name"] ?>: {
+                required: "nama belakang tidak boleh kosong",
+            },
+        },
+        errorPlacement: function (error, element) {
+            $('#'+error.attr('id')).text(error.text());
+            $('#'+error.attr('id')).removeClass('invisible');
+            $('#'+error.attr('id').replace("error", "group")).addClass('form-salah');
+        },
+        success: function (label, element) {
+            $('#'+label.attr('id')).text("_");
+            $('#'+label.attr('id')).addClass('invisible');
+            $('#'+label.attr('id').replace("-error", "")+"-group").removeClass('form-salah');
+        }
+    });
+
     $('#simpan').on('click', function() {
+        if (!$('#edit-form').valid()) {
+            return
+        }
         $.ajax({
             url: '<?= get_api_base() ?>/profile/update',
             type: 'PUT',

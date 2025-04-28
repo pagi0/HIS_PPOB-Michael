@@ -1,12 +1,12 @@
 <div class="w-full flex flex-row justify-between">
     <div class="flex flex-col py-4 ">
-        <div id="profile-picture-group" class="grow relative w-40 p-0">
+        <div id="profile-picture-group" class="grow relative w-26 pb-3">
             <div id="profile-picture" class="w-full aspect-square rounded-full overflow-hidden border border-gray-300 mb-4">
                 <img id="profile-img" class="h-full w-auto aspect-square object-cover rounded-full" src="<?= base_url() ?>assets/img/Profile Photo.png">
             </div>
         </div>
-        <p class="text-xl text-gray-600">Selamat datang,</p>
-        <p class="text-4xl"><span id="fist_name_display">Kristanto</span> <span id="last_name_display">Wibowo</span></p>
+        <p class="text-2xl text-gray-600 mb-1">Selamat datang,</p>
+        <p class="text-4xl font-semibold"><span id="fist_name_display">Kristanto</span> <span id="last_name_display">Wibowo</span></p>
     </div>
     <div class="grow max-w-7/12 grid grid-cols-1 grid-rows-1 align-center">
         <div class="flex flex-col justify-center items-start w-full h-full row-start-1 col-start-1 z-10 pl-8 text-white gap-4">

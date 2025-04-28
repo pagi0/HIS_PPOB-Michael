@@ -2,24 +2,17 @@
 <?= $this->extend('layouts/main') ?>
 
 <?= $this->section('content') ?>
-<div class="container-fluid row d-flex flex-column align-items-center justify-content-center" style="padding-top: 2.5rem; margin-bottom: 5rem;">
+    <div class="w-10/12 flex flex-col items-center gap-4">
 
-    <div class="col-md-10 d-flex flex-column align-items-start gap-4">
-        <?= view('components/profile_widget'); ?>
-        <h3>Semua Transaksi</h3>
-        <div id="transaction-holder" class="w-100 d-flex flex-column align-items-start gap-4">
-<!-- 
-        <div class="d-flex flex-row justify-content-between align-items-center w-100 rounded border p-3 ">
-            <div class="d-flex flex-column">
-                <h4><span>+</span> Rp.10.000</h4>
-                <p style="font-size: 10px">17 Agustus 2023 13:10 WIB</p>   
+        <div class="w-full flex flex-col gap-2">
+            <?= view('components/profile_widget'); ?>
+            <p class="text-2xl mt-10 font-medium">Semua Transaksi</p>
+            <div id="transaction-holder" class="w-full flex flex-col items-start gap-4 mt-4">
+
             </div>
-            <div id="transaction-description" class="align-self-start">Top Up Saldo</div>
-        </div> -->
+            <h5 id="show-more" class="w5/12 text-center mt-5 cursor-pointer text-red-500 font-semibold">Show more</h5>
         </div>
     </div>
-    <h5 id="show-more" class="col-md-2 text-center mt-5 clickable text-danger">Show more</h5>
-</div>
 
 <script>
     let offset_tracker = 0;
@@ -49,10 +42,10 @@
                     let transaction = transactions[i];
                     let prefix = transaction.transaction_type == "TOPUP" ? "+" : "-";
                     let prefix_class = transaction.transaction_type == "TOPUP" ? "transaction-plus" : "transaction-minus";
-                    let transaction_div = $('<div class="d-flex flex-row justify-content-between align-items-center w-100 rounded border p-3 "></div>');
-                    let transaction_info = $('<div class="d-flex flex-column"></div>');
+                    let transaction_div = $('<div class="flex flex-row justify-between items-center w-full rounded-md border border-gray-300 py-4 px-6"></div>');
+                    let transaction_info = $('<div class="flex flex-col"></div>');
                     let format_total = new Intl.NumberFormat('id-ID').format(transaction.total_amount)
-                    let nominal = $(`<h4>${prefix} Rp.${format_total}</h4>`);
+                    let nominal = $(`<p class="text-2xl font-medium">${prefix} Rp.${format_total}</p>`);
                     nominal.addClass(prefix_class);
                     transaction_info.append(nominal);
 
@@ -70,9 +63,9 @@
                     const formatter = new Intl.DateTimeFormat('id-ID', options);
                     const formatted = formatter.format(date).replace('pukul ', '').replace('.', ':');
                     const final_date = `${formatted} WIB`;
-                    transaction_info.append(`<p style="font-size: 10px">${final_date}</p>`);
+                    transaction_info.append(`<p class="text-sm text-gray-500 pt-1">${final_date}</p>`);
                     transaction_div.append(transaction_info);
-                    transaction_div.append('<div class="align-self-start">' + transaction.description + '</div>');
+                    transaction_div.append('<div class="self-start">' + transaction.description + '</div>');
                     transaction_holder.append(transaction_div);
                 }
                 offset_tracker += data_length;

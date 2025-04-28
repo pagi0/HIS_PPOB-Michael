@@ -1,37 +1,31 @@
 <?= $this->extend('layouts/main') ?>
 
 <?= $this->section('content') ?>
-<div class="container-fluid row d-flex flex-column align-items-center" style="padding-top: 2.5rem; margin-bottom: 5rem;">
 
-    <div class="col-md-10 d-flex flex-column align-items-start gap-4">
+    <div class="w-10/12 flex flex-col items-center gap-4">
 
-        <?= view('components/profile_widget'); ?>
-        <h4 class="mb-0">PemBayaran</h4>
-        <div class="d-flex flex-row justify-content-start align-items-center gap-2 mt-0">
-            <img id="service-icon" src="" alt="" width="30" height="30">
-            <h4 id="service-name">_</h4>
-        </div>
-        <div class="row w-100 mt-5">
-            <div class="col-md-12">
-                <div class="d-flex flex-row registrasi borderform mb-1" id="topup-group">
-                        <img 
-                            src="<?= base_url()."assets/icon/credit_card.svg" ?>" 
-                            class="material-symbols-outlined align-self-center registrasi icon"
-                            width="30"
-                            height="30">
-                        <input type="text" 
-                            class="registrasi form" 
-                            id="nominal" 
-                            name="nomial-value"
-                            placeholder="nominal top up" 
-                            value=0
-                            readonly>
-                </div>
-                <button id="bayar" class="registrasi btn w-100" style="margin-top: 1.5rem">Bayar</button>
+        <div class="w-full flex flex-col gap-2">
+            <?= view('components/profile_widget'); ?>
+            <p class="text-xl text-gray-600 mt-14">PemBayaran</p>
+            <div class="flex flex-row justify-start items-center gap-2">
+                <img id="service-icon" src="" alt="" width="30" height="30">
+                <p class="text-2xl font-semibold" id="service-name">_</p>
             </div>
+            <div class="w-full flex flex-row border border-gray-300 rounded-md h-form mt-10" id="topup-group">
+                    <img 
+                        src="<?= base_url()."assets/icon/credit_card.svg" ?>" 
+                        class="material-symbols-outlined w-8 pl-4 brightness-200 invert">
+                    <input type="text" 
+                        class="w-full h-full border-0 px-4 focus:outline-none" 
+                        id="nominal" 
+                        name="nomial-value"
+                        placeholder="nominal top up" 
+                        value=0
+                        readonly>
+            </div>
+            <button id="bayar" class="rounded-md w-full bg-red-500 text-white h-form cursor-pointer mt-4" >Bayar</button>
         </div>
     </div>
-</div>
 
 <?php 
     $beli_data = array(
