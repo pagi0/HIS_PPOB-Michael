@@ -21,7 +21,7 @@
 
 <div class="w-full h-screen flex flex-col items-center justify-center">
     <div class="w-full 3xl:max-w-[2000px] 3xl:max-h-[1080] h-screen grid grid-cols-1 md:grid-cols-2">
-        <div class="w-full w-full grid grid-rows-1 grid-rows-1">
+        <div class="w-full w-full grid grid-rows-1 grid-cols-1">
             <div class="flex flex-row justify-center items-center col-start-1 row-start-1 row-span-1 z-10">
                 <div class="w-8/12 flex flex-col justify-center items-center gap-12">
                     <div class="w-full flex flex-row justify-center items-center gap-2 ">
@@ -34,7 +34,7 @@
                     <h2 class="text-center text-3xl font-semibold">Masuk atau buat akun</br>untuk memulai</h2>
 
                     <form id="login-form" class="w-full" method="POST">
-                    <div>
+                    <div class="flex flex-col gap-4"  >
                         <?php 
                             echo view('components/form_input', $email);
                             echo view('components/form_password', $password);
@@ -84,10 +84,12 @@
         errorPlacement: function (error, element) {
             $('#'+error.attr('id')).text(error.text());
             $('#'+error.attr('id')).removeClass('invisible');
+            $('#'+error.attr('id').replace('error', 'group')).addClass('border-red-500');
         },
         success: function (label, element) {
             $('#'+label.attr('id')).text("_");
             $('#'+label.attr('id')).addClass('invisible');
+            $('#'+label.attr('id').replace('error', 'group')).removeClass('border-red-500');
         },
         submitHandler: function (form) {
             // form.submit(); // Uncomment this line to submit the form
@@ -118,6 +120,7 @@
                 error: function(xhr, status, error) {
                     const response = JSON.parse(xhr.responseText);
                     feedback.removeClass('invisible');
+                    
                     feedback.addClass("bg-bg-err text-err");
                     feedback.removeClass("bg-bg-ok text-ok")
                     feedback.get(0).scrollIntoView();

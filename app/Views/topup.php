@@ -100,7 +100,7 @@
 
 
     $('#topup-btn').on('click', function() {
-            $('#<?= $topup_data['container']?>').removeClass('d-none');
+            $('#<?= $topup_data['container']?>').removeClass('hidden');
             $('#<?= $topup_data['label']['id']?>').text(`Topup senilai`);
             $('#<?= $topup_data['ok']['id']?>').on('click', function () {
                 $.ajax({
@@ -114,11 +114,11 @@
                         top_up_amount: $('#topup-value').val(),
                     }),
                     success: function (response) {
-                        $('#<?= $topup_data['container']?>').addClass('d-none');
+                        $('#<?= $topup_data['container']?>').addClass('hidden');
                         feedback_success();
                     },
                     error: function (xhr, status, error) {
-                        $('#<?= $topup_data['container']?>').addClass('d-none');
+                        $('#<?= $topup_data['container']?>').addClass('hidden');
                         feedback_failed();
                     }
                 });
@@ -126,7 +126,7 @@
                 feedback.addClass('visible')
             });
             $('#<?= $topup_data['no']['id']?>').on('click', function () {
-                $('#<?= $topup_data['container'] ?>').addClass('d-none')
+                $('#<?= $topup_data['container'] ?>').addClass('hidden')
             })
     });
     $('#topup-form').validate({
@@ -150,9 +150,9 @@
         },
     });
     function feedback_success($success) {
-        $('#<?= $beli_feedback[0]['container'] ?>').removeClass('d-none')
+        $('#<?= $beli_feedback[0]['container'] ?>').removeClass('hidden')
         $('#<?= $beli_feedback[0]['close']['id']?>').click(() => {
-            $('#<?= $beli_feedback[0]['container'] ?>').removeClass('d-none')
+            $('#<?= $beli_feedback[0]['container'] ?>').removeClass('hidden')
             $(location).attr('href', "<?= base_url() ?>dashboard");
         })
         let format_total = `Rp.${new Intl.NumberFormat('id-ID').format($('#topup-value').val())}`;
@@ -162,9 +162,9 @@
 
 
     function feedback_failed() {
-        $('#<?= $beli_feedback[1]['container'] ?>').removeClass('d-none')
+        $('#<?= $beli_feedback[1]['container'] ?>').removeClass('hidden')
         $('#<?= $beli_feedback[1]['close']['id']?>').click(() => {
-            $('#<?= $beli_feedback[1]['container'] ?>').removeClass('d-none')
+            $('#<?= $beli_feedback[1]['container'] ?>').removeClass('hidden')
             $(location).attr('href', "<?= base_url() ?>dashboard");
         })
         let format_total = `Rp.${new Intl.NumberFormat('id-ID').format($('#topup-value').val())}`;

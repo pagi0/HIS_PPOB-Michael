@@ -37,10 +37,10 @@
 
 <?= $this->section('content') ?>
 
-<div class="w-full h-screen flex flex-col items-center justify-center">
-    <div class="w-full 3xl:max-w-[2000px] 3xl:max-h-[1080] h-screen grid grid-cols-1 md:grid-cols-2">
+<div class="w-full h-min-screen flex flex-col items-center justify-center">
+    <div class="w-full 3xl:max-w-[2000px] 3xl:max-h-[1080] h-min-screen grid grid-cols-1 md:grid-cols-2">
         <div class="w-full w-full grid grid-rows-1 grid-rows-1">
-            <div class="flex flex-row justify-center items-center col-start-1 row-start-1 row-span-1 z-10">
+            <div class="flex flex-row justify-center items-center col-start-1 row-start-1 row-span-1 z-10 py-24">
                 <div class="w-8/12 flex flex-col justify-center items-center gap-12">
                     <div class="w-full flex flex-row justify-center items-center gap-2 ">
                         <img 
@@ -52,7 +52,7 @@
                     <h2 class="text-center text-3xl font-semibold">Lengkapi data untuk </br>membuat akun</h2>
 
                     <form id="registrasi-form" class="w-full" method="POST">
-                    <div>
+                    <div class="flex flex-col gap-4">
                         <?php 
                             echo view('components/form_input', $email);
                             echo view('components/form_input', $first_name);
@@ -68,8 +68,8 @@
                     </div>
             </div>
             <div class="flex flex-col justify-end items-center row-start-1 row-end-1 col-start-1 col-end-1">
-                <div class="w-10/12 mb-6 flex flex-row p-2 invisible bg-bg-err text-err" id="login-feedback">
-                    <span id="login-feedback-msg">MESAAGE</span>
+                <div class="w-10/12 mb-6 flex flex-row p-2 invisible bg-bg-err text-err" id="registrasi-feedback">
+                    <span id="registrasi-feedback-msg">MESAAGE</span>
                     <span class="align-self-end"></span>
                 </div>
             </div>

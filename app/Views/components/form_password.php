@@ -1,4 +1,4 @@
-<div id="form-group-<?= $api_name ?>" class="w-full flex flex-col gap-0">
+<div id="form-group-<?= $api_name ?>" class="w-full flex flex-col">
     <div class="w-full flex flex-row border border-gray-300 rounded-md h-form" id="<?= $api_name ?>-group">
         <img 
             src="<?= base_url()."assets/icon/".$icon.".svg" ?>" 
@@ -14,7 +14,7 @@
             class="w-8 pr-4 brightness-200 invert"
             id="eye_<?= $api_name ?>">
     </div>
-    <span class="align-self-end text-danger invisible" id="<?= $api_name ?>-error" >_</label>
+    <span class="self-end text-err invisible" id="<?= $api_name ?>-error" >_</label>
 </div>
 
 <script>

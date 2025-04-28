@@ -2,22 +2,19 @@
 
 <?= $this->section('content') ?>
 
-<div class="bg-amber-300 w-3xl h-3 font-extrabold text-amber-200">awkdwako</div>
-<div class="container-xxl row d-flex flex-column justify-content-center align-items-center" style="padding-top: 2.5rem; margin-bottom: 5rem;">
-    <div class="col-md-12 d-flex flex-column align-items-center gap-4 m-0">
-        <div class="col-md-1"></div>
-        <div class="col-md-10 row">
+<div class="w-full 3xl:max-w-[2000px] 3xl:max-h-[1080] h-min-screen mx-auto flex flex-col justify-center items-center pt-10 mb-20 gap-16 ">
+    <div class="w-10/12 flex flex-col items-center gap-4">
+        <div class="w-full flex flex-col gap-14">
             <?= view('components/profile_widget') ?>
-            <div id="service-holder" class="d-flex col-md-12 flex-row mt-4 p-0 flex-fill">
+            <div id="service-holder" class="flex flex-row justify-between flex-wrap gap-1">
             </div>
         </div>
         <div class="col-md-1"></div>
     </div>
-    <div class="col-md-12 row align-self-start">
-        <div class="col-md-1"></div>
-        <div class="col-md-11">
-            <h3>Temukan Promo menarik</h3>
-            <div id="promo-slider" class="d-flex flex-row promo-slider gap-4">
+    <div class="w-11/12 ml-auto flex flex-row align-self-start ">
+        <div class="w-full flex flex-col gap-8">
+            <p class="text-xl">Temukan Promo menarik</p>
+            <div id="promo-slider" class="flex flex-row promo-slider gap-8" >
             </div>
     </div>
 </div>
@@ -36,7 +33,7 @@
             for (let i = 0; i < promo.length; i++) {
                 let promoItem = promo[i];
                 $("#promo-slider").append(`
-                    <a href="#" style="text-decoration: none; underline: none; color: black;">
+                    <a href="#" class="text-black underline-none">
                         <img src="${promoItem.banner_image}" alt="${promoItem.description}">
                     </a>
                 `);
@@ -59,11 +56,11 @@
             let service_holder = $("#service-holder");
             services.forEach((service) =>{
                 service_holder.append(`
-                    <a class="flex-grow-1" href="<?= base_url() ?>service/${service.service_code}" style="text-decoration: none; color: black"> 
-                    <div class="d-flex flex-column align-items-center gap-2 clickable service-item">
-                        <img src="${service.service_icon}" alt="" class="widget-icon">
-                        <p style="text-align: center; text-wrap: wrap" >${service.service_name}</p>
-                    </div>
+                    <a class="shrink underline-none text-black" href="<?= base_url() ?>service/${service.service_code}" > 
+                        <div class="flex flex-col items-center gap-2 cursor-pointer w-26 text-base">
+                            <img class="w-full object-cover" src="${service.service_icon}">
+                            <p class="text-center text-wrap">${service.service_name}</p>
+                        </div>
                     </a>
                 `);
             });

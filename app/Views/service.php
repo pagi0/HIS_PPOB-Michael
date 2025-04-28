@@ -84,7 +84,7 @@
     });
     $('#bayar').on('click', function(e) {
         e.preventDefault()
-        $('#<?= $beli_data['container']?>').removeClass('d-none');
+        $('#<?= $beli_data['container']?>').removeClass('hidden');
         $('#<?= $beli_data['label']['id']?>').text(`Pembelian ${$('#service-name').text().toLowerCase()} senilai`);
         let format_total = `Rp.${new Intl.NumberFormat('id-ID').format($('#nominal').val())}`;
         $('#<?= $beli_data['nominal']['id']?>').text(format_total);
@@ -100,23 +100,23 @@
                     service_code: "<?= $service ?>",
                 }),
                 success: function(data) {
-                    $('#<?= $beli_data['container']?>').addClass('d-none');
+                    $('#<?= $beli_data['container']?>').addClass('hidden');
                     feedback_success();
                 },
                 error: function(xhr, status, error) {
-                    $('#<?= $beli_data['container']?>').addClass('d-none');
+                    $('#<?= $beli_data['container']?>').addClass('hidden');
                     feedback_failed();
                 }
             })
         })
         $('#<?= $beli_data['no']['id']?>').click(() => {
-            $('#<?= $beli_data['container'] ?>').addClass('d-none')
+            $('#<?= $beli_data['container'] ?>').addClass('hidden')
         })
     });
     function feedback_success($success) {
-        $('#<?= $beli_feedback[0]['container'] ?>').removeClass('d-none')
+        $('#<?= $beli_feedback[0]['container'] ?>').removeClass('hidden')
         $('#<?= $beli_feedback[0]['close']['id']?>').click(() => {
-            $('#<?= $beli_feedback[0]['container'] ?>').removeClass('d-none')
+            $('#<?= $beli_feedback[0]['container'] ?>').removeClass('hidden')
             $(location).attr('href', "<?= base_url() ?>dashboard");
         })
         let format_total = `Rp.${new Intl.NumberFormat('id-ID').format($('#nominal').val())}`;
@@ -125,9 +125,9 @@
     }
 
     function feedback_failed() {
-        $('#<?= $beli_feedback[1]['container'] ?>').removeClass('d-none')
+        $('#<?= $beli_feedback[1]['container'] ?>').removeClass('hidden')
         $('#<?= $beli_feedback[1]['close']['id']?>').click(() => {
-            $('#<?= $beli_feedback[1]['container'] ?>').removeClass('d-none')
+            $('#<?= $beli_feedback[1]['container'] ?>').removeClass('hidden')
             $(location).attr('href', "<?= base_url() ?>dashboard");
         })
         let format_total = `Rp.${new Intl.NumberFormat('id-ID').format($('#nominal').val())}`;

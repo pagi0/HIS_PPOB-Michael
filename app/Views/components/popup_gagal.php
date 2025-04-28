@@ -1,4 +1,4 @@
-<div id="<?= $container ?>" class="popup d-none">
+<div id="<?= $container ?>" class="popup hidden">
     <div class="popup-content d-flex flex-column justify-content-center align-items-center">
         <img id="popup-img" src="<?= base_url() ?>assets/img/remove.png" class="mb-3" alt="" width="50" height="50"></img>
         <h5 id="<?= $label['id'] ?>" class="fw-normal m-0 text-center"><?= $label['text'] ?><h5>

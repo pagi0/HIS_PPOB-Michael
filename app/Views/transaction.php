@@ -40,7 +40,7 @@
             success: function(data) {
                 let data_length = data.data.records.length;
                 if (data_length < 1) {
-                    $('#show-more').addClass('d-none');
+                    $('#show-more').addClass('hidden');
                     return;
                 }
                 let transactions = data.data.records;
